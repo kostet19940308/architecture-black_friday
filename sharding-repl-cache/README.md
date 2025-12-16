@@ -40,6 +40,13 @@ docker compose exec -T shard1_1 mongosh --port 27020 --quiet --eval "use somedb"
 docker compose exec -T shard2_1 mongosh --port 27021 --quiet --eval "use somedb" --eval "rs.status()"
 ```
 
+### Тестирование кеша на время:
+
+```shell
+time curl -s http://localhost:8080/helloDoc/users > /dev/null
+```
+Первый запрос будет около секунды, последующие дожны быть быстрее
+
 ## Доступные эндпоинты
 
 Список доступных эндпоинтов, swagger http://<ip виртуальной машины>:8080/docs
